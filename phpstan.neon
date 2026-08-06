@@ -1,0 +1,9 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - src
+        - tests/Fixtures/Support/MigrationUsingSafeMigration.php
+    level: 6
+    tmpDir: build/phpstan

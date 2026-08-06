@@ -1,0 +1,68 @@
+{
+    "name": "rginfotech/laravel-safe-migrations",
+    "description": "Catch dangerous Laravel migrations before they take production down.",
+    "keywords": [
+        "rginfotech",
+        "laravel",
+        "migrations",
+        "postgres",
+        "mysql",
+        "linter"
+    ],
+    "homepage": "https://github.com/rginfotech/laravel-safe-migrations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RG Infotech",
+            "email": "namanshrma2000@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/console": "^12.0|^13.0",
+        "illuminate/database": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "nikic/php-parser": "^5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RGInfotech\\SafeMigrations\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RGInfotech\\SafeMigrations\\Tests\\": "tests/"
+        },
+        "files": [
+            "tests/Helpers.php"
+        ]
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RGInfotech\\SafeMigrations\\SafeMigrationsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
