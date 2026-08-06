@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Console;
+namespace RGInfotech\SafeSchema\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Connection;
 use Illuminate\Support\Facades\DB;
-use RGInfotech\SafeMigrations\Analysis\MigrationParser;
-use RGInfotech\SafeMigrations\Context\LintContext;
-use RGInfotech\SafeMigrations\Context\ServerVersion;
-use RGInfotech\SafeMigrations\Context\TableSizeResolver;
-use RGInfotech\SafeMigrations\Output\ConsoleReporter;
-use RGInfotech\SafeMigrations\Output\GithubReporter;
-use RGInfotech\SafeMigrations\Output\JsonReporter;
-use RGInfotech\SafeMigrations\Results\LintResult;
-use RGInfotech\SafeMigrations\Results\Violation;
-use RGInfotech\SafeMigrations\Rules\RuleRegistry;
-use RGInfotech\SafeMigrations\Support\IgnoreAnnotations;
+use RGInfotech\SafeSchema\Analysis\MigrationParser;
+use RGInfotech\SafeSchema\Context\LintContext;
+use RGInfotech\SafeSchema\Context\ServerVersion;
+use RGInfotech\SafeSchema\Context\TableSizeResolver;
+use RGInfotech\SafeSchema\Output\ConsoleReporter;
+use RGInfotech\SafeSchema\Output\GithubReporter;
+use RGInfotech\SafeSchema\Output\JsonReporter;
+use RGInfotech\SafeSchema\Results\LintResult;
+use RGInfotech\SafeSchema\Results\Violation;
+use RGInfotech\SafeSchema\Rules\RuleRegistry;
+use RGInfotech\SafeSchema\Support\IgnoreAnnotations;
 use Symfony\Component\Process\Process;
 
 class LintCommand extends Command
@@ -52,7 +52,7 @@ class LintCommand extends Command
             : 'pgsql';
 
         if ($driver === 'sqlite') {
-            $this->components->info('safe-migrations does not analyse SQLite migrations. Skipping.');
+            $this->components->info('safe-schema does not analyse SQLite migrations. Skipping.');
 
             return self::SUCCESS;
         }
@@ -122,7 +122,7 @@ class LintCommand extends Command
 
         $this->render($result);
 
-        $strict = (bool) $this->option('strict') || (bool) config('safe-migrations.strict', false);
+        $strict = (bool) $this->option('strict') || (bool) config('safe-schema.strict', false);
 
         return ($strict && $result->hasViolations()) ? self::FAILURE : self::SUCCESS;
     }
@@ -205,7 +205,7 @@ class LintCommand extends Command
 
     private function buildContext(string $driver): LintContext
     {
-        $baselinePath = config('safe-migrations.baseline_path');
+        $baselinePath = config('safe-schema.baseline_path');
         $baseline = [];
 
         if (is_string($baselinePath) && is_file($baselinePath)) {
@@ -222,7 +222,7 @@ class LintCommand extends Command
             driver: $driver,
             serverVersion: $this->resolveServerVersion($connection),
             tableSizes: TableSizeResolver::fromBaselineFile($baseline, $connection),
-            config: (array) config('safe-migrations'),
+            config: (array) config('safe-schema'),
         );
     }
 
@@ -240,7 +240,7 @@ class LintCommand extends Command
 
     private function resolveServerVersion(?Connection $connection): ServerVersion
     {
-        $configured = config('safe-migrations.server_version');
+        $configured = config('safe-schema.server_version');
 
         if (is_string($configured) && $configured !== '') {
             return ServerVersion::from($configured);

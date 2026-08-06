@@ -5,9 +5,9 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Artisan;
 
 beforeEach(function () {
-    config(['safe-migrations.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
+    config(['safe-schema.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
 
-    $this->dir = sys_get_temp_dir().'/safe-migrations-generic-'.uniqid();
+    $this->dir = sys_get_temp_dir().'/safe-schema-generic-'.uniqid();
     mkdir($this->dir);
 });
 

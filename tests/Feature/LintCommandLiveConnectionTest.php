@@ -22,12 +22,12 @@ it('resolves live table sizes end-to-end when no baseline file exists', function
         test()->markTestSkipped('No local MySQL/MariaDB reachable: '.$e->getMessage());
     }
 
-    config(['safe-migrations.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
+    config(['safe-schema.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
 
     // No MySQL rules exist yet (that's Milestone 3), so this only proves the
     // command builds a live-backed LintContext without crashing and without
     // finding any violations (nothing is registered for the mysql driver).
-    $dir = sys_get_temp_dir().'/safe-migrations-live-'.uniqid();
+    $dir = sys_get_temp_dir().'/safe-schema-live-'.uniqid();
     mkdir($dir);
     file_put_contents($dir.'/2026_01_01_000000_add_index.php', <<<'PHP'
 <?php

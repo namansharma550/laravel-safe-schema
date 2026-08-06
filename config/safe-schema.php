@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'baseline_path' => base_path('.safe-migrations-sizes.json'),
+    'baseline_path' => base_path('.safe-schema-sizes.json'),
 
     /*
     |--------------------------------------------------------------------------

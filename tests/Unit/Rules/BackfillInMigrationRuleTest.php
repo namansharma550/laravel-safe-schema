@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Generic\BackfillInMigrationRule;
+use RGInfotech\SafeSchema\Rules\Generic\BackfillInMigrationRule;
 
 it('flags an update call inside a foreach loop', function () {
     $operations = lintOperationsFor('backfill-in-migration', 'dangerous/update_loop.php');

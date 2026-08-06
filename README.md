@@ -1,4 +1,4 @@
-# Laravel Safe Migrations
+# Laravel Safe Schema
 
 It's 2:14pm on a Tuesday. Someone runs `php artisan migrate` to add an index to
 `orders` — a one-line, reviewed, entirely reasonable-looking change. Ninety seconds
@@ -44,7 +44,7 @@ alternative printed right next to the problem:
         DB::statement('CREATE INDEX CONCURRENTLY idx_orders_status ON orders (status)');
     }
 
-  Silence: // safe-migrations:ignore index-not-concurrent
+  Silence: // safe-schema:ignore index-not-concurrent
 
 1 issue in 1 file (3 files scanned, 12 skipped as already migrated)
 ```
@@ -56,7 +56,7 @@ matter.
 ## Installation
 
 ```bash
-composer require --dev rginfotech/laravel-safe-migrations
+composer require --dev rginfotech/laravel-safe-schema
 ```
 
 The service provider registers automatically via Laravel package discovery.
@@ -69,7 +69,7 @@ php artisan migrate:lint
 
 By default this scans `database/migrations`, prints any violations, and **exits 0**
 — it's advisory out of the box so a first run never breaks your build. Opt into a
-failing build with `--strict` or `config('safe-migrations.strict')`.
+failing build with `--strict` or `config('safe-schema.strict')`.
 
 ### Options
 
@@ -84,7 +84,7 @@ failing build with `--strict` or `config('safe-migrations.strict')`.
 ### In CI
 
 ```yaml
-- uses: rginfotech/laravel-safe-migrations@v1
+- uses: rginfotech/laravel-safe-schema@v1
   with:
     since: origin/main
 ```
@@ -97,19 +97,19 @@ annotating it — see [`action.yml`](action.yml) for every input.
 ### Silencing a specific violation
 
 ```php
-// safe-migrations:ignore index-not-concurrent
+// safe-schema:ignore index-not-concurrent
 $table->index('status');
 ```
 
 Or silence an entire file:
 
 ```php
-// safe-migrations:ignore-file
+// safe-schema:ignore-file
 ```
 
 ### Table sizes
 
-Rules that depend on table size stay silent below `config('safe-migrations.min_rows')`
+Rules that depend on table size stay silent below `config('safe-schema.min_rows')`
 (default 10,000 rows). If the size is unknown, the rule still warns but says so.
 
 Table size resolution order: **baseline file → live database connection → unknown**.
@@ -121,7 +121,7 @@ production:
 php artisan migrate:lint:baseline --connection=pgsql_replica
 ```
 
-This reads planner estimates — never `COUNT(*)` — and writes `.safe-migrations-sizes.json`
+This reads planner estimates — never `COUNT(*)` — and writes `.safe-schema-sizes.json`
 at your project root. Commit it to your repo:
 
 ```json
@@ -181,7 +181,7 @@ Linting tells you a migration is dangerous. `SafeMigration` writes the safe one 
 you:
 
 ```php
-use RGInfotech\SafeMigrations\SafeMigration;
+use RGInfotech\SafeSchema\SafeMigration;
 
 return new class extends Migration {
     use SafeMigration;
@@ -230,7 +230,7 @@ references, `NOT NULL` rejects nulls).
 ## Configuration
 
 ```bash
-php artisan vendor:publish --tag=safe-migrations-config
+php artisan vendor:publish --tag=safe-schema-config
 ```
 
 ```php
@@ -238,7 +238,7 @@ return [
     'strict' => false,
     'min_rows' => 10000,
     'disabled_rules' => [],
-    'baseline_path' => base_path('.safe-migrations-sizes.json'),
+    'baseline_path' => base_path('.safe-schema-sizes.json'),
     'server_version' => null,
 ];
 ```

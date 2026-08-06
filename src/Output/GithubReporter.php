@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Output;
+namespace RGInfotech\SafeSchema\Output;
 
-use RGInfotech\SafeMigrations\Results\LintResult;
-use RGInfotech\SafeMigrations\Results\Violation;
+use RGInfotech\SafeSchema\Results\LintResult;
+use RGInfotech\SafeSchema\Results\Violation;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -40,7 +40,7 @@ final class GithubReporter
 
         $firstMessageLine = strtok($violation->message, "\n") ?: $violation->message;
 
-        return "{$violation->table} ({$sizeLabel}): {$firstMessageLine} Silence: // safe-migrations:ignore {$violation->ruleId}";
+        return "{$violation->table} ({$sizeLabel}): {$firstMessageLine} Silence: // safe-schema:ignore {$violation->ruleId}";
     }
 
     /**

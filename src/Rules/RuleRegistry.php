@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Rules;
+namespace RGInfotech\SafeSchema\Rules;
 
 final class RuleRegistry
 {

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Console;
+namespace RGInfotech\SafeSchema\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Connection;
 use Illuminate\Support\Facades\DB;
-use RGInfotech\SafeMigrations\Context\ServerVersion;
+use RGInfotech\SafeSchema\Context\ServerVersion;
 
 class BaselineCommand extends Command
 {
     protected $signature = 'migrate:lint:baseline
         {--connection= : The database connection to read table sizes from (defaults to the default connection)}
-        {--output= : Path to write the baseline JSON file (defaults to config(safe-migrations.baseline_path))}';
+        {--output= : Path to write the baseline JSON file (defaults to config(safe-schema.baseline_path))}';
 
     protected $description = 'Snapshot table sizes from a live database into a baseline file so migrate:lint can size-gate warnings without a production connection.';
 
@@ -138,8 +138,8 @@ class BaselineCommand extends Command
             return $output;
         }
 
-        $configured = config('safe-migrations.baseline_path');
+        $configured = config('safe-schema.baseline_path');
 
-        return is_string($configured) ? $configured : base_path('.safe-migrations-sizes.json');
+        return is_string($configured) ? $configured : base_path('.safe-schema-sizes.json');
     }
 }

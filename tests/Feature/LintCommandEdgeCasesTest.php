@@ -24,7 +24,7 @@ it('does not crash on an empty migrations directory', function () {
     config(['database.default' => 'pgsql']);
     config(['database.connections.pgsql' => ['driver' => 'pgsql']]);
 
-    $emptyDir = sys_get_temp_dir().'/safe-migrations-empty-'.uniqid();
+    $emptyDir = sys_get_temp_dir().'/safe-schema-empty-'.uniqid();
     mkdir($emptyDir);
 
     $this->artisan('migrate:lint', ['--path' => $emptyDir])
@@ -44,7 +44,7 @@ it('does not crash when --new-only is requested without a reachable database', f
         'password' => 'nobody',
     ]]);
 
-    $emptyDir = sys_get_temp_dir().'/safe-migrations-newonly-'.uniqid();
+    $emptyDir = sys_get_temp_dir().'/safe-schema-newonly-'.uniqid();
     mkdir($emptyDir);
 
     $this->artisan('migrate:lint', [
@@ -58,9 +58,9 @@ it('does not crash when --new-only is requested without a reachable database', f
 it('falls back to unknown table sizes when no baseline file exists', function () {
     config(['database.default' => 'pgsql']);
     config(['database.connections.pgsql' => ['driver' => 'pgsql']]);
-    config(['safe-migrations.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
+    config(['safe-schema.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
 
-    $dir = sys_get_temp_dir().'/safe-migrations-nobaseline-'.uniqid();
+    $dir = sys_get_temp_dir().'/safe-schema-nobaseline-'.uniqid();
     mkdir($dir);
     file_put_contents($dir.'/2026_01_01_000000_add_index.php', <<<'PHP'
 <?php

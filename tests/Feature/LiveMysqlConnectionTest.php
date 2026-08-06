@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\DB;
-use RGInfotech\SafeMigrations\Context\ServerVersion;
-use RGInfotech\SafeMigrations\Context\TableSizeResolver;
+use RGInfotech\SafeSchema\Context\ServerVersion;
+use RGInfotech\SafeSchema\Context\TableSizeResolver;
 
 /**
  * These tests hit a real local MySQL/MariaDB server (via XAMPP) rather than

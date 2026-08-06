@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\ConcurrentInTransactionRule;
+use RGInfotech\SafeSchema\Rules\Postgres\ConcurrentInTransactionRule;
 
 it('flags CREATE INDEX CONCURRENTLY when withinTransaction is not disabled', function () {
     $operations = lintOperationsFor('concurrent-in-transaction', 'dangerous/concurrently_without_flag.php');

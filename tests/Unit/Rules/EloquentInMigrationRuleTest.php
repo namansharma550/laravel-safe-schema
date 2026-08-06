@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Generic\EloquentInMigrationRule;
+use RGInfotech\SafeSchema\Rules\Generic\EloquentInMigrationRule;
 
 it('flags a static call on an App\Models class', function () {
     $operations = lintOperationsFor('eloquent-in-migration', 'dangerous/uses_model_static_call.php');

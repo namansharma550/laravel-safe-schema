@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\QueryException;
-use RGInfotech\SafeMigrations\Tests\Fixtures\Support\MigrationUsingSafeMigration;
+use RGInfotech\SafeSchema\Tests\Fixtures\Support\MigrationUsingSafeMigration;
 
 function fakeLockTimeoutException(string $sqlstate): QueryException
 {

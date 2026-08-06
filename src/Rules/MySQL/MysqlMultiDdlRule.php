@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Rules\MySQL;
+namespace RGInfotech\SafeSchema\Rules\MySQL;
 
-use RGInfotech\SafeMigrations\Analysis\Operation;
-use RGInfotech\SafeMigrations\Context\LintContext;
-use RGInfotech\SafeMigrations\Results\Violation;
-use RGInfotech\SafeMigrations\Rules\Rule;
+use RGInfotech\SafeSchema\Analysis\Operation;
+use RGInfotech\SafeSchema\Context\LintContext;
+use RGInfotech\SafeSchema\Results\Violation;
+use RGInfotech\SafeSchema\Rules\Rule;
 
 final class MysqlMultiDdlRule implements Rule
 {

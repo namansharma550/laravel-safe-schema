@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Results;
+namespace RGInfotech\SafeSchema\Results;
 
 final class Violation
 {

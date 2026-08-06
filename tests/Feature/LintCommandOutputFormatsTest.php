@@ -32,9 +32,9 @@ PHP);
 beforeEach(function () {
     config(['database.default' => 'pgsql']);
     config(['database.connections.pgsql' => ['driver' => 'pgsql']]);
-    config(['safe-migrations.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
+    config(['safe-schema.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
 
-    $this->dir = sys_get_temp_dir().'/safe-migrations-formats-'.uniqid();
+    $this->dir = sys_get_temp_dir().'/safe-schema-formats-'.uniqid();
     mkdir($this->dir);
     writeDangerousMigration($this->dir);
 });

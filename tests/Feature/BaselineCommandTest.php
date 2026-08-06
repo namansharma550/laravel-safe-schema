@@ -25,7 +25,7 @@ beforeEach(function () {
     DB::connection('mysql_test')->statement('DROP TABLE IF EXISTS baseline_probe');
     DB::connection('mysql_test')->statement('CREATE TABLE baseline_probe (id INT PRIMARY KEY)');
 
-    $this->outputPath = sys_get_temp_dir().'/safe-migrations-baseline-'.uniqid().'.json';
+    $this->outputPath = sys_get_temp_dir().'/safe-schema-baseline-'.uniqid().'.json';
 });
 
 afterEach(function () {

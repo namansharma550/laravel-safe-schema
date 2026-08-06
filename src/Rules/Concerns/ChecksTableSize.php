@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Rules\Concerns;
+namespace RGInfotech\SafeSchema\Rules\Concerns;
 
-use RGInfotech\SafeMigrations\Analysis\Operation;
-use RGInfotech\SafeMigrations\Context\LintContext;
+use RGInfotech\SafeSchema\Analysis\Operation;
+use RGInfotech\SafeSchema\Context\LintContext;
 
 trait ChecksTableSize
 {

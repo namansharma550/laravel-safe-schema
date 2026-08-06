@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\ChangeColumnTypeRule;
+use RGInfotech\SafeSchema\Rules\Postgres\ChangeColumnTypeRule;
 
 it('flags a column type change on a large existing table', function () {
     $operations = lintOperationsFor('change-column-type', 'dangerous/change_amount_type.php');

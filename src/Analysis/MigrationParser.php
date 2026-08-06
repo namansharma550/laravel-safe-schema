@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Analysis;
+namespace RGInfotech\SafeSchema\Analysis;
 
 use PhpParser\Error as ParserError;
 use PhpParser\Node;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Context;
+namespace RGInfotech\SafeSchema\Context;
 
 use Illuminate\Database\Connection;
 

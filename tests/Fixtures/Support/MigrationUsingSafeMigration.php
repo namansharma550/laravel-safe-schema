@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Tests\Fixtures\Support;
+namespace RGInfotech\SafeSchema\Tests\Fixtures\Support;
 
 use Illuminate\Database\Migrations\Migration;
-use RGInfotech\SafeMigrations\SafeMigration;
+use RGInfotech\SafeSchema\SafeMigration;
 
 /**
  * Exists purely so PHPStan has a concrete class to analyse SafeMigration's

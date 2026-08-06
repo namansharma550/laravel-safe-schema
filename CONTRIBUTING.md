@@ -39,13 +39,13 @@ they're the existing precedent for "operation model doesn't fit."
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Rules\Postgres;
+namespace RGInfotech\SafeSchema\Rules\Postgres;
 
-use RGInfotech\SafeMigrations\Analysis\Operation;
-use RGInfotech\SafeMigrations\Context\LintContext;
-use RGInfotech\SafeMigrations\Results\Violation;
-use RGInfotech\SafeMigrations\Rules\Concerns\ChecksTableSize;
-use RGInfotech\SafeMigrations\Rules\Rule;
+use RGInfotech\SafeSchema\Analysis\Operation;
+use RGInfotech\SafeSchema\Context\LintContext;
+use RGInfotech\SafeSchema\Results\Violation;
+use RGInfotech\SafeSchema\Rules\Concerns\ChecksTableSize;
+use RGInfotech\SafeSchema\Rules\Rule;
 
 final class IndexNotConcurrentRule implements Rule
 {
@@ -103,7 +103,7 @@ if the narrower type is wrong).
 
 ### 3. Register it
 
-Add the class to `SafeMigrationsServiceProvider::defaultRules()`.
+Add the class to `SafeSchemaServiceProvider::defaultRules()`.
 
 ### 4. Write fixtures
 
@@ -126,7 +126,7 @@ fixture for the anonymous-class boilerplate.
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\IndexNotConcurrentRule;
+use RGInfotech\SafeSchema\Rules\Postgres\IndexNotConcurrentRule;
 
 it('flags a non-concurrent index on a large existing table', function () {
     $operations = lintOperationsFor('index-not-concurrent', 'dangerous/add_index_to_orders.php');

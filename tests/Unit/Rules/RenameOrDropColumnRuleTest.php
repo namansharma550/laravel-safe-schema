@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Generic\RenameOrDropColumnRule;
+use RGInfotech\SafeSchema\Rules\Generic\RenameOrDropColumnRule;
 
 it('flags dropColumn on an existing table', function () {
     $operations = lintOperationsFor('rename-or-drop-column', 'dangerous/drop_column.php');

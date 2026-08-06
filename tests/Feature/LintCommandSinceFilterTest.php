@@ -39,9 +39,9 @@ PHP;
 beforeEach(function () {
     config(['database.default' => 'pgsql']);
     config(['database.connections.pgsql' => ['driver' => 'pgsql']]);
-    config(['safe-migrations.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
+    config(['safe-schema.baseline_path' => sys_get_temp_dir().'/does-not-exist-'.uniqid().'.json']);
 
-    $this->repo = sys_get_temp_dir().'/safe-migrations-since-'.uniqid();
+    $this->repo = sys_get_temp_dir().'/safe-schema-since-'.uniqid();
     mkdir($this->repo);
     mkdir($this->repo.'/database');
     mkdir($this->repo.'/database/migrations');

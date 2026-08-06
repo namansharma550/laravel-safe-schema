@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\MySQL\MysqlMultiDdlRule;
+use RGInfotech\SafeSchema\Rules\MySQL\MysqlMultiDdlRule;
 
 it('flags the second of two Schema::table() calls in one migration', function () {
     $operations = lintOperationsFor('mysql-multi-ddl', 'dangerous/two_schema_table_calls.php');

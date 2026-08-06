@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations;
+namespace RGInfotech\SafeSchema;
 
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;

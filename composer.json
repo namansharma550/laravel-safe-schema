@@ -1,5 +1,5 @@
 {
-    "name": "rginfotech/laravel-safe-migrations",
+    "name": "rginfotech/laravel-safe-schema",
     "description": "Catch dangerous Laravel migrations before they take production down.",
     "keywords": [
         "rginfotech",
@@ -9,7 +9,7 @@
         "mysql",
         "linter"
     ],
-    "homepage": "https://github.com/rginfotech/laravel-safe-migrations",
+    "homepage": "https://github.com/rginfotech/laravel-safe-schema",
     "license": "MIT",
     "authors": [
         {
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "RGInfotech\\SafeMigrations\\": "src/"
+            "RGInfotech\\SafeSchema\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RGInfotech\\SafeMigrations\\Tests\\": "tests/"
+            "RGInfotech\\SafeSchema\\Tests\\": "tests/"
         },
         "files": [
             "tests/Helpers.php"
@@ -59,7 +59,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RGInfotech\\SafeMigrations\\SafeMigrationsServiceProvider"
+                "RGInfotech\\SafeSchema\\SafeSchemaServiceProvider"
             ]
         }
     },

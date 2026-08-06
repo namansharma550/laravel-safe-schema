@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\AddForeignKeyRule;
+use RGInfotech\SafeSchema\Rules\Postgres\AddForeignKeyRule;
 
 it('flags a foreign key added to a large existing table', function () {
     $operations = lintOperationsFor('add-foreign-key', 'dangerous/add_foreign_key_to_orders.php');

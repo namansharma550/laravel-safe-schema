@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\DB;
-use RGInfotech\SafeMigrations\Tests\Fixtures\Support\MigrationUsingSafeMigration;
+use RGInfotech\SafeSchema\Tests\Fixtures\Support\MigrationUsingSafeMigration;
 
 /**
  * Proves SafeMigration's helpers actually produce the schema changes they

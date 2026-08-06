@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Analysis;
+namespace RGInfotech\SafeSchema\Analysis;
 
 final class Operation
 {

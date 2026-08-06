@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Analysis\MigrationParser;
+use RGInfotech\SafeSchema\Analysis\MigrationParser;
 
 it('returns null and warns instead of crashing on an unparseable file', function () {
     $warnings = [];

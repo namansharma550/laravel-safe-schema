@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Output;
+namespace RGInfotech\SafeSchema\Output;
 
-use RGInfotech\SafeMigrations\Results\LintResult;
-use RGInfotech\SafeMigrations\Results\Violation;
+use RGInfotech\SafeSchema\Results\LintResult;
+use RGInfotech\SafeSchema\Results\Violation;
 use Symfony\Component\Console\Output\OutputInterface;
 
 final class ConsoleReporter
@@ -41,7 +41,7 @@ final class ConsoleReporter
         $this->output->writeln('');
         $this->output->writeln($this->indent($violation->safeAlternative, 4));
         $this->output->writeln('');
-        $this->output->writeln("  Silence: // safe-migrations:ignore {$violation->ruleId}");
+        $this->output->writeln("  Silence: // safe-schema:ignore {$violation->ruleId}");
     }
 
     private function reportSummary(LintResult $result): void

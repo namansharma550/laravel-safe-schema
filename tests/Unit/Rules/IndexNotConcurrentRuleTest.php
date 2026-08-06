@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\IndexNotConcurrentRule;
+use RGInfotech\SafeSchema\Rules\Postgres\IndexNotConcurrentRule;
 
 it('flags a non-concurrent index on a large existing table', function () {
     $operations = lintOperationsFor('index-not-concurrent', 'dangerous/add_index_to_orders.php');

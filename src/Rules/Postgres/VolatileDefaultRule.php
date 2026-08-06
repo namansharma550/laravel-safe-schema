@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Rules\Postgres;
+namespace RGInfotech\SafeSchema\Rules\Postgres;
 
-use RGInfotech\SafeMigrations\Analysis\Operation;
-use RGInfotech\SafeMigrations\Context\LintContext;
-use RGInfotech\SafeMigrations\Results\Violation;
-use RGInfotech\SafeMigrations\Rules\Concerns\ChecksTableSize;
-use RGInfotech\SafeMigrations\Rules\Rule;
+use RGInfotech\SafeSchema\Analysis\Operation;
+use RGInfotech\SafeSchema\Context\LintContext;
+use RGInfotech\SafeSchema\Results\Violation;
+use RGInfotech\SafeSchema\Rules\Concerns\ChecksTableSize;
+use RGInfotech\SafeSchema\Rules\Rule;
 
 final class VolatileDefaultRule implements Rule
 {

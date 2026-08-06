@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\VolatileDefaultRule;
+use RGInfotech\SafeSchema\Rules\Postgres\VolatileDefaultRule;
 
 it('flags a non-constant default on a large existing table', function () {
     $operations = lintOperationsFor('volatile-default', 'dangerous/add_column_with_now_default.php');

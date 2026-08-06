@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Support;
+namespace RGInfotech\SafeSchema\Support;
 
 final class IgnoreAnnotations
 {
@@ -24,13 +24,13 @@ final class IgnoreAnnotations
         }
 
         foreach ($lines as $index => $line) {
-            if (str_contains($line, 'safe-migrations:ignore-file')) {
+            if (str_contains($line, 'safe-schema:ignore-file')) {
                 $annotations->ignoreWholeFile = true;
 
                 continue;
             }
 
-            if (preg_match('/safe-migrations:ignore\s+([a-z0-9\-]+)/i', $line, $matches) === 1) {
+            if (preg_match('/safe-schema:ignore\s+([a-z0-9\-]+)/i', $line, $matches) === 1) {
                 $targetLine = $index + 2; // 1-indexed line *after* the comment
                 $annotations->ignoredRuleIdsByLine[$targetLine][] = $matches[1];
             }

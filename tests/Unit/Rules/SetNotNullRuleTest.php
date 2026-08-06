@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use RGInfotech\SafeMigrations\Rules\Postgres\SetNotNullRule;
+use RGInfotech\SafeSchema\Rules\Postgres\SetNotNullRule;
 
 it('flags nullable(false)->change() on a large existing table', function () {
     $operations = lintOperationsFor('set-not-null', 'dangerous/set_status_not_null.php');

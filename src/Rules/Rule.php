@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RGInfotech\SafeMigrations\Rules;
+namespace RGInfotech\SafeSchema\Rules;
 
-use RGInfotech\SafeMigrations\Analysis\Operation;
-use RGInfotech\SafeMigrations\Context\LintContext;
-use RGInfotech\SafeMigrations\Results\Violation;
+use RGInfotech\SafeSchema\Analysis\Operation;
+use RGInfotech\SafeSchema\Context\LintContext;
+use RGInfotech\SafeSchema\Results\Violation;
 
 interface Rule
 {
